@@ -375,7 +375,7 @@ class EBMModel(BaseEstimator):
                     "for debugging/testing. Set random_state to None to remove this warning."
                 )
 
-    def fit(self, X, y, sample_weight=None, bags=None, init_score=None):  # noqa: C901
+    def fit(self, X, y, custom_ints, sample_weight=None, bags=None, init_score=None):  # noqa: C901
         """Fits model to provided samples.
 
         Args:
@@ -991,7 +991,7 @@ class EBMModel(BaseEstimator):
                             dataset,
                             internal_bags[idx],
                             scores_bags[idx],
-                            combinations(range(n_features_in), 2),
+                            custom_ints,
                             exclude,
                             Native.CalcInteractionFlags_Default,
                             max_cardinality,
